@@ -1,0 +1,191 @@
+[
+  {
+    "type": "DAO,Insufficient validation",
+    "Date": 20221021,
+    "Title": "OlympusDAO",
+    "Cause": "参数验证不足",
+    "Lost": "$292 K",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs/blob/main/README.md#20221021-bond-protocol---no-input-validation",
+    "Fixed": ""
+  },
+  {
+    "type": "ERC20,Miscalculation,Pricemanipulation",
+    "Date": 20221020,
+    "Title": "HEALTH",
+    "Cause": "函数逻辑不正确-错误的销毁代币",
+    "Lost": "16 BNB",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221020-health---transfer-logic-flaw",
+    "Fixed": ""
+  },
+  {
+    "type": "Insufficient validation,Metaverse",
+    "Date": 20221020,
+    "Title": "BEGO",
+    "Cause": "参数验证不足",
+    "Lost": "12BNB",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221020-bego---incorrect-signature-verification",
+    "Fixed": ""
+  },
+  {
+    "type": "Access Control,ERC20",
+    "Date": 20221018,
+    "Title": "HPAY",
+    "Cause": "不适当的函数存取控制",
+    "Lost": "115 BNB",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221018-hpay---access-control",
+    "Fixed": "fixed"
+  },
+  {
+    "type": "Access Control,ERC20",
+    "Date": 20221017,
+    "Title": "Uerii",
+    "Cause": "不适当的函数存取控制",
+    "Lost": "$2.4 K",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221017-uerii-token---access-control",
+    "Fixed": ""
+  },
+  {
+    "type": "Flashloans,Insufficient validation,Yield",
+    "Date": 20221014,
+    "Title": "EFLeverVault",
+    "Cause": "参数验证不足",
+    "Lost": "750 ETH",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221014-eflevervault---verify-flashloan-callback",
+    "Fixed": ""
+  },
+  {
+    "type": "Flashloans,Insufficient validation,MEV",
+    "Date": 20221014,
+    "Title": "MEVBOTa47b",
+    "Cause": "参数验证不足",
+    "Lost": "$241 k",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221014-mevbota47b---mevbot-a47b",
+    "Fixed": ""
+  },
+  {
+    "type": "ERC20,Pricemanipulation",
+    "Date": 20221012,
+    "Title": "ATK",
+    "Cause": "不安全使用 balanceOf 来当作价格参考",
+    "Lost": "$127 k",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221012-atk---flashloan-manipulate-price",
+    "Fixed": ""
+  },
+  {
+    "type": "Arbitrary call,swap",
+    "Date": 20221011,
+    "Title": "Rabby wallet",
+    "Cause": "任意指令执行 - 透过 functionCallWithValue",
+    "Lost": "$200,000",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221011-rabby-wallet-swaprouter---arbitrary-external-call-vulnerability",
+    "Fixed": ""
+  },
+  {
+    "type": "Access Control,Yield",
+    "Date": 20221011,
+    "Title": "Templedao",
+    "Cause": "不适当的函数存取控制",
+    "Lost": "$2.3 M",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221011-templedao---insufficient-access-control",
+    "Fixed": ""
+  },
+  {
+    "type": "Dex/AMM,Economic",
+    "Date": 20221011,
+    "Title": "Mango",
+    "Cause": "经济型漏洞",
+    "Lost": "$47 M",
+    "Poc": "",
+    "Fixed": ""
+  },
+  {
+    "type": "Arbitrary call,Yield",
+    "Date": 20221010,
+    "Title": "Carrot",
+    "Cause": "不适当的函数存取控制",
+    "Lost": "",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221010-carrot---public-functioncall",
+    "Fixed": ""
+  },
+  {
+    "type": "Governance,MaliciosProposal",
+    "Date": 20221009,
+    "Title": "Xave Finance",
+    "Cause": "DaoModule 预设错误设定",
+    "Lost": "",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221009-xave-finance---malicious-proposal-mint--transfer-ownership",
+    "Fixed": ""
+  },
+  {
+    "type": "ERC20,Flashloans,Pricemanipulation",
+    "Date": 20221006,
+    "Title": "RES token",
+    "Cause": "函数逻辑不正确-错误地销毁代币",
+    "Lost": "$290K",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221006-RES-Token---pair-manipulate",
+    "Fixed": ""
+  },
+  {
+    "type": "Dex/AMM,Insufficient validation",
+    "Date": 20221002,
+    "Title": "Transit Swap",
+    "Cause": "缺少钱包 Owner 权限检查",
+    "Lost": "$21 M",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221002-transit-swap---incorrect-owner-address-validation",
+    "Fixed": ""
+  },
+  {
+    "type": "Dex/AMM,Insufficient validation",
+    "Date": 20221001,
+    "Title": "BabySwap",
+    "Cause": "参数验证不足",
+    "Lost": "",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221001-babyswap---parameter-access-control",
+    "Fixed": ""
+  },
+  {
+    "type": "ERC20,Flashloans,Pricemanipulation",
+    "Date": 20221001,
+    "Title": "RL Token",
+    "Cause": "不正确使用 balanceOf 来计算奖励",
+    "Lost": "",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221001-RL-Token---Incorrect-Reward-calculation",
+    "Fixed": "unfixed"
+  },
+  {
+    "type": "ERC721,reentrancy",
+    "Date": 20221001,
+    "Title": "Thunder Brawl",
+    "Cause": "重入漏洞 - claimReward()",
+    "Lost": "",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20221001-thunder-brawl---reentrancy",
+    "Fixed": "unfixed"
+  },
+  {
+    "type": "Dex/AMM,Flashloans,Pricemanipulation,lending",
+    "Date": 20220928,
+    "Title": "BXH",
+    "Cause": "不正确使用 getReserves 来计算奖励",
+    "Lost": "$40,305",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20220928-bxh---flashloan--price-oracle-manipulation",
+    "Fixed": ""
+  },
+  {
+    "type": "ERC20,Miscalculation",
+    "Date": 20220910,
+    "Title": "DPC",
+    "Cause": "奖励计算错误",
+    "Lost": "$1.4 M",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20220910-dpc---Incorrect-Reward-calculation",
+    "Fixed": ""
+  },
+  {
+    "type": "Arbitrary call,MEV",
+    "Date": 20220928,
+    "Title": "MEVBOT - Badc0de",
+    "Cause": "参数验证不足 - 任意指令执行 - callFunction",
+    "Lost": "$94,304",
+    "Poc": "https://github.com/SunWeb3Sec/DeFiHackLabs#20220928-MEVBOT---Badc0de",
+    "Fixed": ""
+  }
+]
