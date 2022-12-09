@@ -4,61 +4,9 @@ import { Chrono } from "react-chrono";
 import data from "./data.json";
 import { TimelineMode } from "react-chrono/dist/models/TimelineModel";
 import dayjs from "dayjs";
-const themeMap = {
-  light: {
-    primary: "#2e5041",
-    secondary: "#efeae2",
-    cardBgColor:
-      "background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));",
-    cardForeColor:
-      "background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));",
-    titleColor: "var(--tw-prose-headings)",
-    titleColorActive: "var(--tw-prose-headings)",
-  },
-  dark: {
-    primary: "#2e5041",
-    secondary: "hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));",
-    cardBgColor: "hsl(var(--b3,var(--b2))/var(--tw-bg-opacity))",
-    cardForeColor:
-      "background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));",
-    titleColor: "var(--tw-prose-headings)",
-    titleColorActive: "var(--tw-prose-headings)",
-  },
-};
+import { Timeline } from "./Timeline";
+
 function App() {
-  const [theme, setTheme] = useState(themeMap["light"]);
-  const [chronoType, setChronoType] = useState<TimelineMode>("VERTICAL");
-
-  const runColorMode = (fn: (isDarkMode: boolean) => void) => {
-    if (!window.matchMedia) {
-      return;
-    }
-
-    const query = window.matchMedia("(prefers-color-scheme: dark)");
-
-    fn(query.matches);
-
-    query.addEventListener("change", (event) => fn(event.matches));
-  };
-
-  useEffect(() => {
-    runColorMode((isDarkMode: boolean) => {
-      if (isDarkMode) {
-        document.body.classList.add("dark-mode");
-        setTheme(themeMap["dark"]);
-      } else {
-        document.body.classList.remove("dark-mode");
-        setTheme(themeMap["light"]);
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    document.body.clientWidth < 768
-      ? setChronoType("VERTICAL")
-      : setChronoType("VERTICAL_ALTERNATING");
-  }, []);
-
   return (
     <div className="App bg-base-200">
       <button className="btn btn-lg btn-ghost drawer-button btn-square normal-case git-btn">
@@ -80,24 +28,6 @@ function App() {
           </svg>
         </a>
       </button>
-      {/* <button className="btn btn-lg btn-ghost drawer-button btn-square normal-case twitter-btn">
-        <a
-          target="_blank"
-          href="https://github.com/saadeghi/daisyui"
-          rel="noopener"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            className="inline-block h-16 w-16 fill-current md:h-12 md:w-12"
-          >
-            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-          </svg>
-        </a>
-      </button> */}
-
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -120,8 +50,6 @@ function App() {
             <button
               className="btn"
               onClick={() => {
-                // window.scrollTo(0, window.screen.height);
-
                 document
                   .querySelector("div[data-testid=tree-main]")
                   ?.scrollIntoView({
@@ -134,96 +62,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Chrono
-        allowDynamicUpdate
-        theme={theme}
-        useReadMore={false}
-        disableClickOnCircle
-        hideControls
-        items={
-          chronoType === "VERTICAL_ALTERNATING"
-            ? data.map((i) => {
-                return {
-                  title: dayjs(`${i.time}`, "YYYYMMDD").format("YYYY-MM-DD"),
-                  // cardTitle: i.title,
-                  // url: i.reference[0]?.link,
-                  // cardDetailedText: i.content
-                  //   .split(/[\n]/)
-                  //   .filter((content) => content !== ""),
-                };
-              })
-            : []
-        }
-        mode={chronoType}
-        classNames={{
-          card: "custom-card card",
-          cardMedia: "custom-card-media",
-          cardSubTitle: "custom-card-subtitle",
-          cardText: "custom-card-text",
-          cardTitle: "card-title text-2xl",
-          controls: "custom-controls",
-          title: "time-text italic",
-        }}
-      >
-        {data.map((i, index) => {
-          return (
-            <div
-              className="prose max-w-none shadow-xl rounded-md p-4 bg-white"
-              style={{ width: "100%" }}
-              key={index}
-            >
-              <h1>{i.title}</h1>
-              {i.content
-                .split(/[\n]/)
-                .filter((content) => content !== "")
-                .map((content, index) => {
-                  return (
-                    <p className="content text-lg" key={index}>
-                      {content}
-                    </p>
-                  );
-                })}
-              <ul>
-                {i.reference.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={item.link}>{item.linkTitle}</a>
-                      {item.suffix && <span>{item.suffix}</span>}
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="gap-2 flex">
-                {i.types.map((type, index) => {
-                  return (
-                    <div className="badge" key={index}>
-                      {type}
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="gap-2 flex mt-2">
-                {i.techTags.map((tag, index) => {
-                  return (
-                    <div className="badge badge-primary" key={index}>
-                      {tag}
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="gap-2 flex mt-2">
-                {i.themeTags.map((tag, index) => {
-                  return (
-                    <div className="badge badge-secondary" key={index}>
-                      {tag}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </Chrono>
+      <Timeline></Timeline>
       <footer className="footer items-center p-4 bg-neutral text-neutral-content">
         <div className="items-center grid-flow-col">
           <svg

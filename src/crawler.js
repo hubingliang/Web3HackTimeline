@@ -36,7 +36,7 @@ const main = () => {
     }
     // console.log("themeTag: ", themeTag);
     // console.log("title: ", title);
-    console.log("content: ", content);
+    // console.log("content: ", content);
     // console.log("time: ", time);
     // console.log("types: ", types);
     // console.log("techTags: ", techTags);
@@ -62,11 +62,10 @@ const getTime = (event) => {
   return event.querySelector("time").innerText;
 };
 const getReference = (event) => {
-  return [...event.querySelectorAll("ul:not(.entry-link-icons) li")].map(
+  return [...event.querySelectorAll(":scope > .entry-wrapper > ul:not(.entry-link-icons) li")].map(
     (li) => {
       const a = li.querySelector("a");
       const suffix = li.querySelector(":scope > span");
-      console.log("suffix: ", suffix);
       return {
         link: a.href,
         linkTitle: a.innerText,
