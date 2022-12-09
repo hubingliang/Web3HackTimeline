@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Chrono } from "react-chrono";
 import data from "./data.json";
 import { TimelineMode } from "react-chrono/dist/models/TimelineModel";
-import { TimelineItemModel } from "react-chrono/dist/models/TimelineItemModel";
 import dayjs from "dayjs";
 const themeMap = {
   light: {
@@ -59,7 +57,7 @@ function App() {
     document.body.clientWidth < 768
       ? setChronoType("VERTICAL")
       : setChronoType("VERTICAL_ALTERNATING");
-  }, [document.body.clientWidth]);
+  }, [document]);
 
   return (
     <div className="App bg-base-200">
@@ -67,8 +65,8 @@ function App() {
         <a
           aria-label="Github"
           target="_blank"
+          rel="noreferrer" 
           href="https://github.com/saadeghi/daisyui"
-          rel="noopener"
           // className="btn btn-ghost drawer-button btn-square normal-case"
         >
           <svg
