@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Chrono } from "react-chrono";
-import data from "./data.json";
-import { TimelineMode } from "react-chrono/dist/models/TimelineModel";
-import dayjs from "dayjs";
 import { Timeline } from "./Timeline";
 
 function App() {
