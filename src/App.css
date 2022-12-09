@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 .App-logo {
@@ -35,4 +36,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+.rc-card {
+  background: transparent !important;
+}
+.git-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.custom-card-text {
+  display: block !important;
+  /* padding: 30px 30px !important; */
+  margin: 0 !important;
+}
+.time-text {
+  font-size: 1.5rem !important; /* 30px */
+  line-height: 2rem !important; /* 36px */
 }
