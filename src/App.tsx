@@ -57,7 +57,7 @@ function App() {
     document.body.clientWidth < 768
       ? setChronoType("VERTICAL")
       : setChronoType("VERTICAL_ALTERNATING");
-  }, [document]);
+  }, []);
 
   return (
     <div className="App bg-base-200">
